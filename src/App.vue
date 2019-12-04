@@ -27,7 +27,7 @@ export default {
 
   body {
     /*background-image: url("./assets/green.jpg");*/
-    background-color: gray;
+    background-color: rgb(43, 75, 45);
   }
 
   h1 {
