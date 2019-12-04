@@ -2,7 +2,12 @@
   <div class="maker">
     <h1>Booking Tool</h1>
     <h2>Select Your Date</h2>
-      <input type="date"></input>
+      <input type="date">
+    <h2>Select Your Venue</h2>
+      <input type="radio" name="venue" value="Savoy Ballroom">Savoy Ballroom<br>
+      <input type="radio" name="venue" value="Cotton Club">Cottton Club<br>
+      <input type="radio" name="venue" value="Bird Land">Bird Land<br>
+      <input type="radio" name="venue" value="Village Vanguard">Village Vanguard<br>
     <h2>Select Your Style</h2>
       <select v-model="style">
         <option v-for="style in styles" :key="style">{{ style }}</option>
@@ -60,6 +65,18 @@
           <option v-for="drummer in drummers" :key="drummer">{{ drummer }}</option>
         </select>
       </div>
+      <div>
+        <div class="title">Guitar</div>
+        <select v-model="guitar">
+          <option v-for="guitar in guitars" :key="guitar">{{ guitar }}</option>
+        </select>
+      </div>
+      <div>
+        <div class="title">Vocalist</div>
+        <select v-model="vocalist">
+          <option v-for="vocalist in vocalists" :key="vocalist">{{ vocalist }}</option>
+        </select>
+      </div>
     </div>
     <h2>This date's current personnel are:</h2>
     <div class="fajita">
@@ -71,6 +88,8 @@
       <div v-show="piano.length > 0">{{ piano }}</div>
       <div v-show="bass.length > 0">{{ bass }}</div>
       <div v-show="drummer.length > 0">{{ drummer }}</div>
+      <div v-show="guitar.length > 0">{{ guitar }}</div>
+      <div v-show="vocalist.length > 0">{{ vocalist }}</div>
       <button @click="addBand">Book the Band!</button>
     </div>
     <div v-if="gigsBooked.length > 0" class="gigsBooked">
@@ -99,6 +118,8 @@ export default {
       pianos: 'piano',
       basses: 'basses',
       drummers: 'drummers',
+      guitars: 'guitars',
+      vocalists: 'vocalists',
       gigsBooked: 'gigsBooked',
       styles: 'styles',
       formats: 'formats',
@@ -114,6 +135,8 @@ export default {
       piano: '',
       bass: '',
       drummer: '',
+      guitar: '',
+      vocalist: '',
     };
   },
   created() {
@@ -136,6 +159,8 @@ export default {
         piano: this.piano,
         bass: this.bass,
         drummer: this.drummer,
+        guitar: this.guitar,
+        vocalist: this.vocalist,
       };
       this.$store.dispatch('addBand', band);
     },

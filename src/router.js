@@ -10,6 +10,8 @@ import Bones from './views/bones.vue';
 import Pianos from './views/pianos.vue';
 import Basses from './views/basses.vue';
 import Drummers from './views/drummers.vue';
+import Guitars from './views/guitars.vue';
+import Vocalists from './views/vocalists.vue';
 import GigsBooked from './views/gigsBooked.vue';
 import Band from './views/band.vue';
 
@@ -68,6 +70,16 @@ export default new Router({
       path: '/drummers',
       name: 'drummers',
       component: Drummers,
+    },
+    {
+      path: '/guitars',
+      name: 'guitars',
+      component: Guitars,
+    },
+    {
+      path: '/vocalists',
+      name: 'vocalists',
+      component: Vocalists,
     },
     {
       path: '/gigsBooked',

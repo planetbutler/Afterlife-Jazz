@@ -31,7 +31,6 @@
           Please Specify: <input type="text" name="otherInstrument">
         </form>  
       </div>  
-      </form>
       <div class="styles">Style<br>
         <input type="checkbox" name="style1" value="swing"> Swing<br>
         <input type="checkbox" name="style2" value="bebop"> Bebop<br>

@@ -13,8 +13,10 @@ export default new Vuex.Store({
     piano: ['William Basie', 'Edward Ellington', 'Dave Brubeck', 'Henry Mancini', 'Art Tatum', 'Oscar Peterson', 'Thelonius Monk', 'McCoy Tyner'],
     basses: ['Ron Carter', 'Ray Brown', 'Charles Mingus', 'Paul Chambers', 'Stanley Clarke', 'Eddie Gomez'],
     drummers: ['Elvin Jones', 'Joseph Jones', 'Art Blakey', 'Max Roach', 'Gene Krupa', 'Buddy Rich', 'Kenny Clarke', 'Shelly Manne'],
+    guitars: ['Freddie Greene', 'Joe Pass', 'Jean Reinhardt', 'Wes Montgomery', 'John Scofield', 'George Benson', 'Pat Metheny', 'Jim Hall'],
+    vocalists: ['Ella Fitzgerald', 'Sarah Vaughn', 'Carmen McRae', 'Billie Holiday', 'Nancy Wilson', 'Joe Williams', 'Annie Ross', 'Jon Hendricks', 'Mel Torme', 'Nat Cole', 'Cabell Calloway', 'Frank Sinatra'],
     gigsBooked: [],
-    instruments: ['trumpet', 'alto', 'tenor', 'bari', 'bone', 'piano', 'bass', 'drums', 'other'],
+    instruments: ['trumpet', 'alto', 'tenor', 'bari', 'bone', 'piano', 'bass', 'drums', 'guitar', 'vocalist', 'other'],
     styles: ['Swing', 'Bebop', 'Modal', 'Jazz Rock', 'Latin', 'Dixieland', 'Free Form'],
     formats: ['Big Band', 'Combo'],
   },
@@ -42,6 +44,12 @@ export default new Vuex.Store({
     },
     addDrums(state, drummer) {
       state.drummers.push(drummer);
+    },
+    addGuitar(state, guitar) {
+      state.guitars.push(guitar);
+    },
+    addVocalist(state, vocalist) {
+      state.vocalists.push(vocalist);
     },
     addBand(state, band) {
       state.gigsBooked.push(band);
@@ -77,6 +85,12 @@ export default new Vuex.Store({
     },
     addDrums({ commit }, drummer) {
       commit('addDrum', drummer);
+    },
+    addGuitar({ commit }, guitar) {
+      commit('addGuitar', guitar);
+    },
+    addVocalist({ commit }, vocalist) {
+      commit('addVocalist', vocalist);
     },
     addBand({ commit }, band) {
       commit('addBand', band);
