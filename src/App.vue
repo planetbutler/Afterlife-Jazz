@@ -26,7 +26,7 @@ export default {
   }
 
   body {
-    /*background-image: url("./assets/green.jpg");*/
+    background-image: url("./assets/biggreen.jpg");
     background-color: rgb(43, 75, 45);
   }
 

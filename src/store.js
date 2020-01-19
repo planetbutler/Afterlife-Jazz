@@ -5,7 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    trumpets: ['Clark Terry', 'Eugene Young', 'Clifford Brown', 'Jack Sheldon', 'Lee Morgan', 'Chet Baker', 'Austin Brisbois', 'William Anderson', 'Pete Candoli', 'Conte Candoli', 'Alan Rubin', 'Randy Brecker'],
+    /*trumpets: ['Clark Terry', 'Marion Childers', 'Don Fagerquist', 'John Gillespie', 'Eugene Young', 'Clifford Brown', 'Jack Sheldon', 'Lee Morgan', 'Chet Baker', 'Austin Brisbois', 'William Anderson', 'Pete Candoli', 'Conte Candoli', 'Alan Rubin', 'Randy Brecker'],*/
+    trumpets: [{ first: 'Clark', last: 'Terry', nickName: 'Clark', birthday: '12/14/1920', instrument: 'trumpet', style: 'bebop', format: 'combo' },
+    { first: 'Marion', last: 'Childers', nickname: 'Buddy', birthday: '02/12/1926', instrument: 'trumpet', style: 'bebop', format: 'big band'}],
     altos: ['William Adderley', 'Charlie Parker', 'Benny Goldson', 'Art Pepper', 'Paul Desmond', 'Johnny Hodges', 'Jackie McLean'],
     tenors: ['John Coletrane', 'Sonny Rollins', 'Stan Getz', 'Wayne Shorter', 'Dexter Gordon', 'Coleman Hawkins', 'Lester Young', 'Michael Brecker'],
     baris: ['Gerry Mulligan', 'Howard Johnson', 'Harry Carney'],

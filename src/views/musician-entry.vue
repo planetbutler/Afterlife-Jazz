@@ -2,6 +2,21 @@
   <div class="form">
     <h1>Welcome to Afterlife Jazz</h1>
     <h2>New Musician Sign Up</h2>
+      <div class="instruments">
+        <h3>Instrument</h3>
+        <!--<div v-for="instrument in instruments" :key="instrument">
+          {{ instrument }}
+        </div>-->
+        <select v-model="instrument">
+          <option v-for="instrument in instruments" :key="instrument">{{ instrument }}</option>
+        </select></br>
+        <input v-model="instrument">
+        <button @click="addInstrument">Add Instrument</button>
+      </div>
+        <!--<select v-model="instrument">
+          <option v-for="type in instruments" :key="type">{{ type }}</option>
+        </select>
+      </div>-->   
       <form class="signup">
         First name:
         <input type="text" name="firstname" v-model="first">
@@ -15,11 +30,7 @@
         Birthday:
         <input type="date" name="bday">
       </form>
-      <div class="instruments">Instrument
-        <select v-model="instrument">
-          <option v-for="type in instruments" :key="type">{{ type }}</option>
-        </select>
-      </div>
+      
       <div class="instruments" v-if="instrument == 'trumpet'">Lead Trumpet?
         <select>
           <option>Yes</option>
@@ -47,6 +58,7 @@
       <div>My Ghostly Mug
         <input type="image">
       </div>
+      <button v-on:click="submit">Submit</button>
   </div>
 </template>
 
@@ -65,6 +77,16 @@ export default {
     return {
       first: '',
       instrument: ''
+    }
+  },
+  methods: {
+    addTrumpet() {
+      this.$store.dispatch('addTrumpet', this.trumpet);
+      this.trumpet='';
+    },
+    addInstrument() {
+      this.$store.dispatch('addInstrument', this.instrument);
+      this.instrument = '';
     }
   }
 };
