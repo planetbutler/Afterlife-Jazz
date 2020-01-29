@@ -29,19 +29,17 @@
     <div class="musicians"> 
       <h2>Select your Musicians</h2>
       <div>
-        <div>Trumpets<br>(select up to 5)
-          <multiselect 
-            v-model="trumpet" 
-            :multiple="true" 
-            :options="trumpets"
-            :close-on-select="false"
+        <div>Trumpets<br>(select up to 5)</div>
+          <select v-model="trumpet">
+            <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>  
+            <!--close-on-select="false"
             max="5"
             class="select"
           />
-            <!--<select v-model="trumpet" size="5" multiple="multiple" @change="limitTrumpetSelection">
+            <select v-model="trumpet" size="5" multiple="multiple" @change="limitTrumpetSelection">
               <option v-for="trumpet in trumpets" :key="trumpet">{{ trumpet }}</option>
-            </select>-->
-        </div>    
+            </select>-->  
       </div>
       <div>
         <div>Altos<br>(select up to 2)
@@ -181,22 +179,22 @@
     </div>
     <h2 class="maker">This date's current personnel are:</h2>
     <div class="maker">
-      <div v-show="trumpet.length > 0">On Trumpet {{ trumpet }}</div>
-      <div v-show="alto.length > 0">On Alto Sax {{ alto }}</div>
-      <div v-show="tenor.length > 0">On Tenor Sax {{ tenor }}</div>
-      <div v-show="bari.length > 0">On Bari Sax {{ bari }}</div>
-      <div v-show="bone.length > 0">On Trombone {{ bone }}</div>
-      <div v-show="piano.length > 0">On Piano {{ piano }}</div>
-      <div v-show="bass.length > 0">On Bass {{ bass }}</div>
-      <div v-show="drummer.length > 0">On Drums {{ drummer }}</div>
-      <div v-show="guitar.length > 0">On Guitar {{ guitar }}</div>
-      <div v-show="vocalist.length > 0">On Vocals {{ vocalist }}</div>
+      <div v-show="trumpet.nickName">On Trumpet {{ trumpet.nickName }} {{ trumpet.last }}</div>
+      <div v-show="alto.first">On Alto Sax {{ alto.nickName }} {{ alto.last }}</div>
+      <div v-show="tenor.first">On Tenor Sax {{ tenor.nickName }} {{ tenor.last }}</div>
+      <div v-show="bari.first">On Bari Sax {{ bari.nickName }} {{ bari.last }}</div>
+      <div v-show="bone.first">On Trombone {{ bone.nickName }} {{ bone.last }}</div>
+      <div v-show="piano.first">On Piano {{ piano.nickName }} {{ piano.last }}</div>
+      <div v-show="bass.first">On Bass {{ bass.nickName }} {{ bass.last }}</div>
+      <div v-show="drummer.first">On Drums {{ drummer.nickName }} {{ drummer.last }}</div>
+      <div v-show="guitar.first">On Guitar {{ guitar.nickName }} {{ guitar.last }}</div>
+      <div v-show="vocalist.first">On Vocals {{ vocalist.nickName }} {{ vocalist.last }}</div>
       <button @click="addBand">Book the Band!</button>
     </div>
     <div v-if="gigsBooked.length > 0" class="gigsBooked">
       <h2>Booking List</h2>
       <div v-for="band in gigsBooked" :key="band.id">
-        {{ band.id }} - Tonight's Band Led by {{ band.trumpet }}
+        {{ band.id }} - Tonight's Band Led by {{ band.trumpet.nickName }}
       </div>
     </div>
   </div>
@@ -212,16 +210,7 @@ export default {
   components: { Multiselect },
   computed: {
     ...mapState({
-      trumpets: 'trumpets',
-      altos: 'altos',
-      tenors: 'tenors',
-      baris: 'baris',
-      bones: 'bones',
-      pianos: 'piano',
-      basses: 'basses',
-      drummers: 'drummers',
-      guitars: 'guitars',
-      vocalists: 'vocalists',
+      musicians: 'musicians',
       gigsBooked: 'gigsBooked',
       styles: 'styles',
       formats: 'formats',
@@ -229,22 +218,41 @@ export default {
   },
   data() {
     return {
-      trumpet: [],
-      trumpetOptions: [],
-      alto: [],
-      tenor: [],
-      bari: '',
-      bone: [],
-      piano: '',
-      bass: '',
-      drummer: '',
-      guitar: '',
-      vocalist: '',
+      trumpet: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      alto: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      tenor: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      bari: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      bone: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      piano: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      bass: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      drummer: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      guitar: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      vocalist: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
       style: '',
+      format: '',
+      trumpetPlayers:[],
+      altoPlayers:[],
+      tenorPlayers:[],
+      bariPlayers:[],
+      bonePlayers:[],
+      pianoPlayers:[],
+      bassPlayers:[],
+      drummerPlayers:[],
+      guitarPlayers:[],
+      vocalistPlayers:[],
     };
   },
   created() {
-    console.log(this.$route);
+  this.trumpetPlayers=this.musicians.filter(item => item.category==='trumpet');
+  this.altoPlayers=this.musicians.filter(item => item.category==='alto');
+  this.tenorPlayers=this.musicians.filter(item => item.category==='tenor');
+  this.bariPlayers=this.musicians.filter(item => item.category==='bari');
+  this.bonePlayers=this.musicians.filter(item => item.category==='bone');
+  this.pianoPlayers=this.musicians.filter(item => item.category==='piano');
+  this.bassPlayers=this.musicians.filter(item => item.category==='bass');
+  this.drummerPlayers=this.musicians.filter(item => item.category==='drummer');
+  this.guitarPlayers=this.musicians.filter(item => item.category==='guitar');
+  this.vocalistPlayers=this.musicians.filter(item => item.category==='vocalist');
   },
   mounted() {
   },

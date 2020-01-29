@@ -2,21 +2,38 @@
   <div class="form">
     <h1>Welcome to Afterlife Jazz</h1>
     <h2>New Musician Sign Up</h2>
-      <div class="instruments">
-        <h3>Instrument</h3>
-        <!--<div v-for="instrument in instruments" :key="instrument">
-          {{ instrument }}
-        </div>-->
+      <div v-for="(cat, index) in musicians" :key="index">
+          {{ cat.nickName }} {{ cat.last }}
+      </div>
+      <h3>First Name</h3>
+      <input v-model="cat.first">
+      <h3>Last Name</h3>
+      <input v-model="cat.last">
+      <h3>Nick Name</h3>
+      <input v-model="cat.nickName">
+      <h3>Axe</h3>
+      <input v-model="cat.axe">
+      <h3>Style</h3>
+      <input v-model="cat.style">
+      <h3>Format</h3>
+      <input v-model="cat.format">
+      <h3>DOB</h3>
+      <input v-model="cat.dob">
+      <h3>DOD</h3>
+      <input v-model="cat.dod">
+
+
+        <!--<h3>Instrument</h3>
         <select v-model="instrument">
           <option v-for="instrument in instruments" :key="instrument">{{ instrument }}</option>
         </select></br>
         <input v-model="instrument">
         <button @click="addInstrument">Add Instrument</button>
       </div>
-        <!--<select v-model="instrument">
+        <select v-model="instrument">
           <option v-for="type in instruments" :key="type">{{ type }}</option>
         </select>
-      </div>-->   
+      </div> 
       <form class="signup">
         First name:
         <input type="text" name="firstname" v-model="first">
@@ -57,8 +74,8 @@
       </div>  
       <div>My Ghostly Mug
         <input type="image">
-      </div>
-      <button v-on:click="submit">Submit</button>
+      </div>-->
+      <button @click="addCat">Submit</button>
   </div>
 </template>
 
@@ -66,28 +83,26 @@
 import { mapState } from 'vuex';
 
 export default {
+  name: 'CatList',
   computed: {
     ...mapState({
-      instruments: 'instruments',
-      styles: 'styles',
-      formats: 'formats',
+      musicians: 'musicians',
     }),
   },
   data() {
     return {
-      first: '',
-      instrument: ''
+      cat: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
     }
   },
   methods: {
-    addTrumpet() {
-      this.$store.dispatch('addTrumpet', this.trumpet);
-      this.trumpet='';
+    addCat() {
+      this.$store.dispatch('addCat', this.cat);
+      this.cat={first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null};
     },
-    addInstrument() {
+    /*addInstrument() {
       this.$store.dispatch('addInstrument', this.instrument);
       this.instrument = '';
-    }
+    }*/
   }
 };
 </script>

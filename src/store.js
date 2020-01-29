@@ -5,59 +5,35 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    /*trumpets: ['Clark Terry', 'Marion Childers', 'Don Fagerquist', 'John Gillespie', 'Eugene Young', 'Clifford Brown', 'Jack Sheldon', 'Lee Morgan', 'Chet Baker', 'Austin Brisbois', 'William Anderson', 'Pete Candoli', 'Conte Candoli', 'Alan Rubin', 'Randy Brecker'],*/
-    trumpets: [{ first: 'Clark', last: 'Terry', nickName: 'Clark', birthday: '12/14/1920', instrument: 'trumpet', style: 'bebop', format: 'combo' },
-    { first: 'Marion', last: 'Childers', nickname: 'Buddy', birthday: '02/12/1926', instrument: 'trumpet', style: 'bebop', format: 'big band'}],
-    altos: ['William Adderley', 'Charlie Parker', 'Benny Goldson', 'Art Pepper', 'Paul Desmond', 'Johnny Hodges', 'Jackie McLean'],
-    tenors: ['John Coletrane', 'Sonny Rollins', 'Stan Getz', 'Wayne Shorter', 'Dexter Gordon', 'Coleman Hawkins', 'Lester Young', 'Michael Brecker'],
-    baris: ['Gerry Mulligan', 'Howard Johnson', 'Harry Carney'],
-    bones: ['Bob Brookmeyer', 'Kai Winding', 'Bob Enivolsen', 'James Johnson', 'Locksley Hampton', 'Jack Teagarden', 'Curtis Fuller', 'Tommy Dorsey', 'Bill Watrous', 'Frank Rosolino', 'Carl Fontana', 'Glen Miller'],
-    piano: ['William Basie', 'Edward Ellington', 'Dave Brubeck', 'Henry Mancini', 'Art Tatum', 'Oscar Peterson', 'Thelonius Monk', 'McCoy Tyner'],
-    basses: ['Ron Carter', 'Ray Brown', 'Charles Mingus', 'Paul Chambers', 'Stanley Clarke', 'Eddie Gomez'],
-    drummers: ['Elvin Jones', 'Joseph Jones', 'Art Blakey', 'Max Roach', 'Gene Krupa', 'Buddy Rich', 'Kenny Clarke', 'Shelly Manne'],
-    guitars: ['Freddie Greene', 'Joe Pass', 'Jean Reinhardt', 'Wes Montgomery', 'John Scofield', 'George Benson', 'Pat Metheny', 'Jim Hall'],
-    vocalists: ['Ella Fitzgerald', 'Sarah Vaughn', 'Carmen McRae', 'Billie Holiday', 'Nancy Wilson', 'Joe Williams', 'Annie Ross', 'Jon Hendricks', 'Mel Torme', 'Nat Cole', 'Cabell Calloway', 'Frank Sinatra'],
+    musicians: [{ first: 'Clark', last: 'Terry', nickName: 'Clark', axe: 'trumpet', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Marion', last: 'Childers', nickName: 'Buddy', axe: 'trumpet', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'John', last: 'Gillespie', nickName: 'Dizzy', axe: 'trumpet', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'William', last: 'Adderley', nickName: 'Cannon Ball', axe: 'alto', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Benjamin', last: 'Goldson', nickName: 'Benny', axe: 'alto', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'John', last: 'Coletrane', nickName: 'Trane', axe: 'tenor', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Walter', last: 'Rollins', nickName: 'Sonny', axe: 'tenor', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Gerry', last: 'Mulligan', nickName: 'Gerry', axe: 'bari', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Locksley', last: 'Hampton', nickName: 'Slide', axe: 'bone', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Kai', last: 'Winding', nickName: 'Kai', axe: 'bone', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'William', last: 'Basie', nickName: 'Count', axe: 'piano', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Paul', last: 'Chambers', nickName: 'Mr. PC', axe: 'bass', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Joseph', last: 'Jones', nickName: 'Philly Joe', axe: 'drums', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Jean', last: 'Reinhardt', nickName: 'Django', axe: 'guitar', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Billie', last: 'Holiday', nickName: 'Lady Day', axe: 'vocals', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Cabell', last: 'Calloway', nickName: 'Cab', axe: 'vocals', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' }],
     gigsBooked: [],
-    instruments: ['trumpet', 'alto', 'tenor', 'bari', 'bone', 'piano', 'bass', 'drums', 'guitar', 'vocalist', 'other'],
     styles: ['Swing', 'Bebop', 'Modal', 'Jazz Rock', 'Latin', 'Dixieland', 'Free Form'],
     formats: ['Big Band', 'Combo'],
   },
   mutations: {
-    addTrumpet(state, trumpet) {
-      state.trumpets.push(trumpet);
-    },
-    addAlto(state, alto) {
-      state.altos.push(alto);
-    },
-    addTenor(state, tenor) {
-      state.tenors.push(tenor);
-    },
-    addBari(state, bari) {
-      state.baris.push(bari);
-    },
-    addBone(state, bone) {
-      state.bones.push(bone);
-    },
-    addPiano(state, piano) {
-      state.pianos.push(piano);
-    },
-    addBass(state, bass) {
-      state.basses.push(bass);
-    },
-    addDrums(state, drummer) {
-      state.drummers.push(drummer);
-    },
-    addGuitar(state, guitar) {
-      state.guitars.push(guitar);
-    },
-    addVocalist(state, vocalist) {
-      state.vocalists.push(vocalist);
+    addTrumpet(state, cat) {
+      state.musicians.push(cat);
     },
     addBand(state, band) {
       state.gigsBooked.push(band);
     },
-    addInstruments(state, instrument) {
-      state.instruments.push(instruemnt);
+    addAxes(state, axe) {
+      state.axes.push(axe);
     },
     addStyle(state, style) {
       state.styles.push(style);
@@ -97,8 +73,8 @@ export default new Vuex.Store({
     addBand({ commit }, band) {
       commit('addBand', band);
     },
-    addInstrument({ commit }, instrument) {
-      commit('addInstrument');
+    addAxe({ commit }, axe) {
+      commit('addAxe');
     },
   },
 });

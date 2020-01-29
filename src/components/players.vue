@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <div class="players">
     <span class="title">The Cats</span>
     
@@ -11,4 +11,4 @@
 
 <style scoped lang="scss">
   
-</style>
+</style>-->

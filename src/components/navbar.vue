@@ -2,7 +2,7 @@
   <div class="navbar">
     <span class="title">Afterlife Jazz</span>
 
-    <router-link :to="{ name: 'musician-entry' }">Sign Up</router-link>
+    <router-link :to="{ name: 'musicians' }">Sign Up</router-link>
     <router-link :to="{ name: 'bookingTool' }">Book a Band</router-link>
     <router-link :to="{ name: 'gigsBooked' }">Gigs Booked</router-link>
 

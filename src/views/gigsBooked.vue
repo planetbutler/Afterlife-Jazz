@@ -3,7 +3,7 @@
     <h1>List of Booked Gigs</h1>
     <div v-for="band in gigsBooked" :key="band.id" class="band">
       <router-link :to="{ name: 'band', params: { id: band.id }}">
-        <div>Gig ID: {{ band.id }} - {{ band.trumpet }}</div>
+        <div>Gig ID: {{ band.id }} - {{ band.trumpet.nickName }}</div>
       </router-link>
     </div>
   </div>
@@ -18,14 +18,7 @@ export default {
   components: {},
   computed: {
     ...mapState({
-      trumpets: 'trumpets',
-      altos: 'altos',
-      tenors: 'tenors',
-      baris: 'baris',
-      bones: 'bones',
-      pianos: 'pianos',
-      basses: 'basses',
-      drummers: 'drummers',
+      musicians: 'musicians',
       gigsBooked: 'gigsBooked',
     }),
   },
@@ -33,14 +26,7 @@ export default {
     viewBand() {
       const band = {
         id: 1 + this.gigsBooked.length,
-        trumpet: this.trumpet,
-        alto: this.alto,
-        tenor: this.tenor,
-        bari: this.bari,
-        bone: this.bone,
-        piano: this.piano,
-        bass: this.bass,
-        drummer: this.drummer,
+        cat: this.cat,
       };
       this.$store.dispatch('addBand', band);
     },
