@@ -12,14 +12,14 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/musicians',
-      name: 'musicians',
-      component: SignUp,
-    },
-    {
       path: '/',
       name: 'bookingTool',
       component: BookingTool,
+    },
+    {
+      path: '/musicians',
+      name: 'musicians',
+      component: SignUp,
     },
     {
       path: '/gigsBooked',

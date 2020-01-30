@@ -30,7 +30,7 @@
       <h2>Select your Musicians</h2>
       <div>
         <div>Trumpets<br>(select up to 5)</div>
-          <select v-model="trumpet">
+          <select :multiple="multiple" v-model="trumpet">
             <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>  
             <!--close-on-select="false"
@@ -43,14 +43,9 @@
       </div>
       <div>
         <div>Altos<br>(select up to 2)
-          <multiselect 
-            v-model="alto" 
-            :multiple="true" 
-            :options="altos"
-            :close-on-select="false"
-            max="2"
-            class="select"
-          />
+          <select v-model="alto" :multiple="true"> 
+            <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
           <!--<select v-model="alto" multiple="multiple">
             <option v-for="alto in altos" :key="alto">{{ alto }}</option>
           </select>-->
@@ -58,7 +53,10 @@
       </div>  
       <div>
         <div>Tenors<br>(select up to 2)
-          <multiselect 
+          <select v-model="tenor" :multiple="true"> 
+            <option v-for="(cat, index) in tenorPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="tenor" 
             :multiple="true" 
             :options="tenors"
@@ -66,14 +64,17 @@
             max="2"
             class="select"
           />
-          <!--<select v-model="tenor" multiple="multiple">
+          <select v-model="tenor" multiple="multiple">
             <option v-for="tenor in tenors" :key="tenor">{{ tenor }}</option>
           </select>-->
         </div>  
       </div>
       <div>
         <div>Baris<br>(select 1)
-          <multiselect 
+          <select v-model="bari"> 
+            <option v-for="(cat, index) in bariPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="bari" 
             :multiple="true" 
             :options="baris"
@@ -81,14 +82,17 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="bari">
+          <select v-model="bari">
             <option v-for="bari in baris" :key="bari">{{ bari }}</option>
           </select>-->
         </div>  
       </div>
       <div>
         <div>Bones<br>(select up to 5)
-          <multiselect 
+          <select v-model="bone" :multiple="true" :close-on-select="true"> 
+            <option v-for="(cat, index) in bonePlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="bone" 
             :multiple="true" 
             :options="bones"
@@ -96,14 +100,17 @@
             max="5"
             class="select"
           />
-          <!--<select v-model="bone" multiple="multiple">
+          <select v-model="bone" multiple="multiple">
             <option v-for="bone in bones" :key="bone">{{ bone }}</option>
           </select>-->
         </div>  
       </div>
       <div>
         <div>Piano<br>(select 1)
-          <multiselect 
+          <select v-model="piano"> 
+            <option v-for="(cat, index) in pianoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="piano" 
             :multiple="true" 
             :options="pianos"
@@ -111,14 +118,17 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="piano">
+          <select v-model="piano">
             <option v-for="piano in pianos" :key="piano">{{ piano }}</option>
           </select>-->
         </div>
       </div>
       <div>
         <div>Bass<br>(select 1)
-          <multiselect 
+          <select v-model="bass"> 
+            <option v-for="(cat, index) in bassPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="bass" 
             :multiple="true" 
             :options="basses"
@@ -126,14 +136,17 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="bass">
+          <select v-model="bass">
             <option v-for="bass in basses" :key="bass">{{ bass }}</option>
           </select>-->
         </div>
       </div>
       <div>
         <div>Drummer<br>(select 1)
-          <multiselect 
+        <select v-model="drummer"> 
+            <option v-for="(cat, index) in drummerPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="drummer" 
             :multiple="true" 
             :options="drummers"
@@ -141,14 +154,17 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="drummer">
+          <select v-model="drummer">
             <option v-for="drummer in drummers" :key="drummer">{{ drummer }}</option>
           </select>-->
         </div>
       </div>
       <div>
         <div>Guitar<br>(select 1)
-          <multiselect 
+          <select v-model="guitar"> 
+            <option v-for="(cat, index) in guitarPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+         <!--<multiselect 
             v-model="guitar" 
             :multiple="true" 
             :options="guitars"
@@ -156,14 +172,17 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="guitar">
+          <select v-model="guitar">
             <option v-for="guitar in guitars" :key="guitar">{{ guitar }}</option>
           </select>-->
         </div>
       </div>
       <div>
         <div>Vocalist<br>(select 1)
-          <multiselect 
+          <select v-model="vocalist"> 
+            <option v-for="(cat, index) in vocalistPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+          <!--<multiselect 
             v-model="vocalist" 
             :multiple="true" 
             :options="vocalists"
@@ -171,7 +190,7 @@
             max="1"
             class="select"
           />
-          <!--<select v-model="vocalist">
+          <select v-model="vocalist">
             <option v-for="vocalist in vocalists" :key="vocalist">{{ vocalist }}</option>
           </select>-->
         </div>
@@ -243,16 +262,16 @@ export default {
     };
   },
   created() {
-  this.trumpetPlayers=this.musicians.filter(item => item.category==='trumpet');
-  this.altoPlayers=this.musicians.filter(item => item.category==='alto');
-  this.tenorPlayers=this.musicians.filter(item => item.category==='tenor');
-  this.bariPlayers=this.musicians.filter(item => item.category==='bari');
-  this.bonePlayers=this.musicians.filter(item => item.category==='bone');
-  this.pianoPlayers=this.musicians.filter(item => item.category==='piano');
-  this.bassPlayers=this.musicians.filter(item => item.category==='bass');
-  this.drummerPlayers=this.musicians.filter(item => item.category==='drummer');
-  this.guitarPlayers=this.musicians.filter(item => item.category==='guitar');
-  this.vocalistPlayers=this.musicians.filter(item => item.category==='vocalist');
+  this.trumpetPlayers=this.musicians.filter(item => item.axe==='trumpet');
+  this.altoPlayers=this.musicians.filter(item => item.axe==='alto');
+  this.tenorPlayers=this.musicians.filter(item => item.axe==='tenor');
+  this.bariPlayers=this.musicians.filter(item => item.axe==='bari');
+  this.bonePlayers=this.musicians.filter(item => item.axe==='bone');
+  this.pianoPlayers=this.musicians.filter(item => item.axe==='piano');
+  this.bassPlayers=this.musicians.filter(item => item.axe==='bass');
+  this.drummerPlayers=this.musicians.filter(item => item.axe==='drummer');
+  this.guitarPlayers=this.musicians.filter(item => item.axe==='guitar');
+  this.vocalistPlayers=this.musicians.filter(item => item.axe==='vocalist');
   },
   mounted() {
   },

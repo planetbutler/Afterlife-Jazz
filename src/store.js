@@ -17,16 +17,16 @@ export default new Vuex.Store({
     { first: 'Kai', last: 'Winding', nickName: 'Kai', axe: 'bone', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
     { first: 'William', last: 'Basie', nickName: 'Count', axe: 'piano', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
     { first: 'Paul', last: 'Chambers', nickName: 'Mr. PC', axe: 'bass', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
-    { first: 'Joseph', last: 'Jones', nickName: 'Philly Joe', axe: 'drums', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Joseph', last: 'Jones', nickName: 'Philly Joe', axe: 'drummer', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
     { first: 'Jean', last: 'Reinhardt', nickName: 'Django', axe: 'guitar', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
-    { first: 'Billie', last: 'Holiday', nickName: 'Lady Day', axe: 'vocals', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
-    { first: 'Cabell', last: 'Calloway', nickName: 'Cab', axe: 'vocals', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' }],
+    { first: 'Billie', last: 'Holiday', nickName: 'Lady Day', axe: 'vocalist', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' },
+    { first: 'Cabell', last: 'Calloway', nickName: 'Cab', axe: 'vocalist', style: 'bebop', format: 'combo', dob: '12/14/1920', dod: '02/21/2015' }],
     gigsBooked: [],
     styles: ['Swing', 'Bebop', 'Modal', 'Jazz Rock', 'Latin', 'Dixieland', 'Free Form'],
     formats: ['Big Band', 'Combo'],
   },
   mutations: {
-    addTrumpet(state, cat) {
+    addCat(state, cat) {
       state.musicians.push(cat);
     },
     addBand(state, band) {
@@ -40,10 +40,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    addTrumpet({ commit }, trumpet) {
-      commit('addTrumpet', trumpet);
+    addCat({ commit }, cat) {
+      commit('addCat', cat);
     },
-    addAlto({ commit }, alto) {
+    /*addAlto({ commit }, alto) {
       commit('addAlto', alto);
     },
     addTenor({ commit }, tenor) {
@@ -69,7 +69,7 @@ export default new Vuex.Store({
     },
     addVocalist({ commit }, vocalist) {
       commit('addVocalist', vocalist);
-    },
+    },*/
     addBand({ commit }, band) {
       commit('addBand', band);
     },

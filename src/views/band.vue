@@ -2,8 +2,8 @@
   <div class="maker">
     <h1>The Band: {{ id }}</h1>
     <div>Featuring -</div>
-    <div v-show="band.trumpet.nickName >0">Cat: {{ band.trumpet.nickName }}</div>
-    <div v-show="band.alto.nickName >0">Alto: {{ band.alto.nickName }}</div>
+    <div v-show="band.trumpet.nickName">Cat: {{ band.trumpet.nickName }}</div>
+    <div v-show="band.alto.nickName">Alto: {{ band.alto.nickName }}</div>
     <div v-show="band.tenor.length > 0">Tenor: {{ band.tenor }}</div>
     <div v-show="band.bari.length > 0">Bari: {{ band.bari }}</div>
     <div v-show="band.bone.length > 0">Bone: {{ band.bone }}</div>

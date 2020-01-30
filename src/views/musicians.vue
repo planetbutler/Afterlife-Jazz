@@ -2,14 +2,12 @@
   <div class="form">
     <h1>Welcome to Afterlife Jazz</h1>
     <h2>New Musician Sign Up</h2>
-      <div v-for="(cat, index) in musicians" :key="index">
-          {{ cat.nickName }} {{ cat.last }}
-      </div>
+      
       <h3>First Name</h3>
       <input v-model="cat.first">
       <h3>Last Name</h3>
       <input v-model="cat.last">
-      <h3>Nick Name</h3>
+      <h3>But the cats call me</h3>
       <input v-model="cat.nickName">
       <h3>Axe</h3>
       <input v-model="cat.axe">
@@ -21,7 +19,11 @@
       <input v-model="cat.dob">
       <h3>DOD</h3>
       <input v-model="cat.dod">
-
+      <button @click="addCat">Submit</button>
+      <h3>Roster</h3>
+      <div v-for="(cat, index) in musicians" :key="index">
+          {{ cat.nickName }} {{ cat.last }}
+      </div>
 
         <!--<h3>Instrument</h3>
         <select v-model="instrument">
@@ -75,7 +77,7 @@
       <div>My Ghostly Mug
         <input type="image">
       </div>-->
-      <button @click="addCat">Submit</button>
+      
   </div>
 </template>
 
