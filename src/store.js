@@ -24,6 +24,7 @@ export default new Vuex.Store({
     gigsBooked: [],
     styles: ['Swing', 'Bebop', 'Modal', 'Jazz Rock', 'Latin', 'Dixieland', 'Free Form'],
     formats: ['Big Band', 'Combo'],
+    axes: ['trumpet', 'alto', 'tenor', 'bari', 'bone', 'piano', 'bass', 'drummer', 'guitar', 'vocalist', 'other'],
   },
   mutations: {
     addCat(state, cat) {

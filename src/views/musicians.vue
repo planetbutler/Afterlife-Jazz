@@ -10,15 +10,21 @@
       <h3>But the cats call me</h3>
       <input v-model="cat.nickName">
       <h3>Axe</h3>
-      <input v-model="cat.axe">
+        <select v-model="axe"> 
+          <option v-for="(axe, index) in axes" :value="axe" :key="index">{{ axe }}</option>
+        </select>
       <h3>Style</h3>
-      <input v-model="cat.style">
+        <select multiple="true" v-model="style"> 
+          <option v-for="(style, index) in styles" :value="style" :key="index">{{ style }}</option>
+        </select>
       <h3>Format</h3>
-      <input v-model="cat.format">
+        <select multiple="true" v-model="format"> 
+          <option v-for="(format, index) in formats" :value="format" :key="index">{{ format }}</option>
+        </select>
       <h3>DOB</h3>
-      <input v-model="cat.dob">
+      <input type="date" v-model="cat.dob">
       <h3>DOD</h3>
-      <input v-model="cat.dod">
+      <input type="date" v-model="cat.dod">
       <button @click="addCat">Submit</button>
       <h3>Roster</h3>
       <div v-for="(cat, index) in musicians" :key="index">
@@ -89,6 +95,9 @@ export default {
   computed: {
     ...mapState({
       musicians: 'musicians',
+      axes: 'axes',
+      styles: 'styles',
+      formats: 'formats',
     }),
   },
   data() {
@@ -101,17 +110,20 @@ export default {
       this.$store.dispatch('addCat', this.cat);
       this.cat={first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null};
     },
-    /*addInstrument() {
-      this.$store.dispatch('addInstrument', this.instrument);
-      this.instrument = '';
-    }*/
+    addAxe() {
+      this.$store.dispatch('addAxe', this.axe);
+      this.axe = '';
+    }
   }
 };
 </script>
 
 <style>
+h3 {
+  padding: 10px, 10px;
+}
 .form {
-  margin: 100px, 100px;
+ padding: 10px, 10px, 10px, 10px;
 }
 .signup {
 margin: 100px, 100px;
