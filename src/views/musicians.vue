@@ -1,89 +1,48 @@
 <template>
-  <div class="form">
-    <h1>Welcome to Afterlife Jazz</h1>
-    <h2>New Musician Sign Up</h2>
-      
-      <h3>First Name</h3>
-      <input v-model="cat.first">
-      <h3>Last Name</h3>
-      <input v-model="cat.last">
-      <h3>But the cats call me</h3>
-      <input v-model="cat.nickName">
-      <h3>Axe</h3>
-        <select v-model="axe"> 
-          <option v-for="(axe, index) in axes" :value="axe" :key="index">{{ axe }}</option>
-        </select>
-      <h3>Style</h3>
-        <select multiple="true" v-model="style"> 
-          <option v-for="(style, index) in styles" :value="style" :key="index">{{ style }}</option>
-        </select>
-      <h3>Format</h3>
-        <select multiple="true" v-model="format"> 
-          <option v-for="(format, index) in formats" :value="format" :key="index">{{ format }}</option>
-        </select>
-      <h3>DOB</h3>
-      <input type="date" v-model="cat.dob">
-      <h3>DOD</h3>
-      <input type="date" v-model="cat.dod">
-      <button @click="addCat">Submit</button>
-      <h3>Roster</h3>
-      <div v-for="(cat, index) in musicians" :key="index">
-          {{ cat.nickName }} {{ cat.last }}
+  <div class="page">
+    <h1>Welcome to Afterlife Jazz</h1> 
+    <div class="form">  
+      <div class="info">
+        <h2>New Musician Sign Up</h2>
+          <div class="bio">First Name
+            <input v-model="cat.first">
+          </div>  
+          <div class="bio">Last Name
+            <input v-model="cat.last">
+          </div>  
+          <div class="bio">But the cats call me
+            <input v-model="cat.nickName">
+          </div>  
+          <div class="bio">Axe
+            <select v-model="axe"> 
+              <option v-for="(axe, index) in axes" :value="axe" :key="index">{{ axe }}</option>
+            </select>
+          </div>  
+          <div class="bio">Style
+            <select multiple="true" v-model="style"> 
+              <option v-for="(style, index) in styles" :value="style" :key="index">{{ style }}</option>
+            </select>
+          </div>
+          <div class="bio">Format
+            <select multiple="true" v-model="format"> 
+              <option v-for="(format, index) in formats" :value="format" :key="index">{{ format }}</option>
+            </select>
+          </div>
+          <div class="bio">DOB
+            <input type="date" v-model="cat.dob">
+          </div>
+          <div class="bio">DOD
+            <input type="date" v-model="cat.dod">
+          </div>
+          <button @click="addCat">Submit</button>
       </div>
-
-        <!--<h3>Instrument</h3>
-        <select v-model="instrument">
-          <option v-for="instrument in instruments" :key="instrument">{{ instrument }}</option>
-        </select></br>
-        <input v-model="instrument">
-        <button @click="addInstrument">Add Instrument</button>
-      </div>
-        <select v-model="instrument">
-          <option v-for="type in instruments" :key="type">{{ type }}</option>
-        </select>
+      <div class="roster">  
+        <h2>Roster</h2>
+        <div v-for="(cat, index) in musicians" :key="index">
+            {{ cat.nickName }} {{ cat.last }}
+        </div>
       </div> 
-      <form class="signup">
-        First name:
-        <input type="text" name="firstname" v-model="first">
-        <br>
-        Last name:
-        <input type="text" name="lastname">
-        <br>
-        But the cats call me:
-        <input type="text" name="nickname">
-        <br>
-        Birthday:
-        <input type="date" name="bday">
-      </form>
-      
-      <div class="instruments" v-if="instrument == 'trumpet'">Lead Trumpet?
-        <select>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>  
-      <div class="instruments">
-        <form v-if="instrument == 'other'" name="otherInstrumentForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-          Please Specify: <input type="text" name="otherInstrument">
-        </form>  
-      </div>  
-      <div class="styles">Style<br>
-        <input type="checkbox" name="style1" value="swing"> Swing<br>
-        <input type="checkbox" name="style2" value="bebop"> Bebop<br>
-        <input type="checkbox" name="style3" value="modal"> Modal<br>
-        <input type="checkbox" name="style4" value="jazz rock"> Jazz Rock<br>
-        <input type="checkbox" name="style5" value="latin"> Latin<br>
-        <input type="checkbox" name="style6" value="dixieland"> Dixieland<br>
-        <input type="checkbox" name="style7" value="free form"> Free Form<br>
-      </div>  
-      <div>Format<br>
-        <input type="checkbox" name="format1" value="big band"> Big Band<br>
-        <input type="checkbox" name="format" value="combo"> Combo<br>
-      </div>  
-      <div>My Ghostly Mug
-        <input type="image">
-      </div>-->
-      
+    </div>   
   </div>
 </template>
 
@@ -118,15 +77,30 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+.page {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 100%;
+  padding: 50px, 50px, 50px, 50px;
+}
 h3 {
   padding: 10px, 10px;
 }
 .form {
- padding: 10px, 10px, 10px, 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  padding: 50px, 50px, 50px, 50px;
+  margin: 50px, 50px;
 }
-.signup {
-margin: 100px, 100px;
+.info {
+  padding: 50px, 50px, 50px, 50px;
+  margin: 100px, 100px;
 }
-
+.bio {
+  padding: 50px, 50px, 50px, 50px;
+  margin: 50px, 50px; 
+}
 </style>

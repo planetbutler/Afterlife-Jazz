@@ -1,220 +1,170 @@
 <template>
-  <div>
-    <!--<h1 class="maker">Booking Tool</h1>-->
-    <div class="maker">
-      <h2>Select Your Date</h2>
-        <input type="date">
-    </div>
-    <div class="maker">
-      <h2 class="venue">Select Your Venue</h2>
-        <input type="radio" class="venue" name="venue" value="Savoy Ballroom">Savoy Ballroom<br>
-        <input type="radio" class="venue" name="venue" value="Cotton Club">Cotton Club<br>
-        <input type="radio" class="venue" name="venue" value="Bird Land">Bird Land<br>
-        <input type="radio" class="venue" name="venue" value="Village Vanguard">Village Vanguard<br>
-    </div>
-    <div class="maker">
-      <h2>Select Your Style</h2>
-        <input type="radio" name="style" value="Swing">Swing<br>
-        <input type="radio" name="style" value="Bebop">Bebop<br>
-        <input type="radio" name="style" value="Modal">Modal<br>
-        <input type="radio" name="style" value="Jazz Rock">Jazz Rock<br>
-        <input type="radio" name="style" value="Latin">Latin<br>
-        <input type="radio" name="style" value="Dixieland">Dixieland<br>
-    </div>
-    <div class="maker">
-      <h2>Select Your Format</h2>
-      <input type="radio" name="format" value="big band">Big Band<br>
-      <input type="radio" name="format" value="combo">Combo<br>
-    </div> 
-    <div class="musicians"> 
+  <div class="bookpage">
+    <div class="eventcol">
+      <div class="maker">
+        <h2>Select Your Date</h2>
+          <input type="date">
+      </div>
+      <div class="maker">
+        <h2 class="venue">Select Your Venue</h2>
+          <input type="radio" class="venue" name="venue" value="Savoy Ballroom">Savoy Ballroom North (Way North)<br>
+          <input type="radio" class="venue" name="venue" value="Cotton Club">Cloud Club<br>
+          <input type="radio" class="venue" name="venue" value="Bird Land">Bird of Paradise Land<br>
+          <input type="radio" class="venue" name="venue" value="Village Vanguard">Village Vanguard<br>
+      </div>
+      <div class="maker">
+        <h2>Select Your Style</h2>
+          <input type="checkbox" name="style" value="Swing">Swing<br>
+          <input type="checkbox" name="style" value="Bebop">Bebop<br>
+          <input type="checkbox" name="style" value="Modal">Modal<br>
+          <input type="checkbox" name="style" value="Jazz Rock">Jazz Rock<br>
+          <input type="checkbox" name="style" value="Latin">Latin<br>
+          <input type="checkbox" name="style" value="Dixieland">Dixieland<br>
+      </div>
+      <div class="maker">
+        <h2>Select Your Format</h2>
+        <input type="radio" name="format" value="big band">Big Band<br>
+        <input type="radio" name="format" value="combo">Combo<br>
+      </div> 
+    </div>  
+    <div class="musicianscol"> 
       <h2>Select your Musicians</h2>
       <div>
-        <div>Trumpets<br>(select up to 5)</div>
-          <select :multiple="multiple" v-model="trumpet">
+        <div>Lead Trumpet
+          <select v-model="trumpet">
             <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
-          </select>  
-            <!--close-on-select="false"
-            max="5"
-            class="select"
-          />
-            <select v-model="trumpet" size="5" multiple="multiple" @change="limitTrumpetSelection">
-              <option v-for="trumpet in trumpets" :key="trumpet">{{ trumpet }}</option>
-            </select>-->  
+          </select>
+        </div>    
       </div>
       <div>
-        <div>Altos<br>(select up to 2)
-          <select v-model="alto" :multiple="true"> 
-            <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+        <div>Trumpet 2
+          <select v-model="trumpet">
+            <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<select v-model="alto" multiple="multiple">
-            <option v-for="alto in altos" :key="alto">{{ alto }}</option>
-          </select>-->
-        </div>
-      </div>  
+        </div>    
+      </div>
       <div>
-        <div>Tenors<br>(select up to 2)
-          <select v-model="tenor" :multiple="true"> 
-            <option v-for="(cat, index) in tenorPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+        <div>Trumpet 3
+          <select v-model="trumpet">
+            <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="tenor" 
-            :multiple="true" 
-            :options="tenors"
-            :close-on-select="false"
-            max="2"
-            class="select"
-          />
-          <select v-model="tenor" multiple="multiple">
-            <option v-for="tenor in tenors" :key="tenor">{{ tenor }}</option>
-          </select>-->
+        </div>    
+      </div>
+      <div>
+        <div>Trumpet 4
+          <select v-model="trumpet">
+            <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
         </div>  
       </div>
       <div>
-        <div>Baris<br>(select 1)
+        <div>Trumpet 5 (jazz chair)
+          <select v-model="trumpet">
+            <option v-for="(cat, index) in trumpetPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>  
+        </div>  
+      </div>
+      <div>
+        <div>Alto 1
+          <select v-model="alto"> 
+            <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+        </div>
+      </div> 
+      <div>
+        <div>Alto 2
+          <select v-model="alto"> 
+            <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+        </div>
+      </div>    
+      <div>
+        <div>Tenor 1
+          <select v-model="tenor"> 
+            <option v-for="(cat, index) in tenorPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+        </div> 
+      </div>
+      <div>
+        <div>Tenor 2
+          <select v-model="tenor"> 
+            <option v-for="(cat, index) in tenorPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+          </select>
+        </div>  
+      </div>
+      <div>
+        <div>Bari
           <select v-model="bari"> 
             <option v-for="(cat, index) in bariPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="bari" 
-            :multiple="true" 
-            :options="baris"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="bari">
-            <option v-for="bari in baris" :key="bari">{{ bari }}</option>
-          </select>-->
         </div>  
       </div>
       <div>
-        <div>Bones<br>(select up to 5)
-          <select v-model="bone" :multiple="true" :close-on-select="true"> 
+        <div>Bones
+          <select v-model="bone" :close-on-select="true"> 
             <option v-for="(cat, index) in bonePlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="bone" 
-            :multiple="true" 
-            :options="bones"
-            :close-on-select="false"
-            max="5"
-            class="select"
-          />
-          <select v-model="bone" multiple="multiple">
-            <option v-for="bone in bones" :key="bone">{{ bone }}</option>
-          </select>-->
         </div>  
       </div>
       <div>
-        <div>Piano<br>(select 1)
+        <div>Piano
           <select v-model="piano"> 
             <option v-for="(cat, index) in pianoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="piano" 
-            :multiple="true" 
-            :options="pianos"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="piano">
-            <option v-for="piano in pianos" :key="piano">{{ piano }}</option>
-          </select>-->
         </div>
       </div>
       <div>
-        <div>Bass<br>(select 1)
+        <div>Bass
           <select v-model="bass"> 
             <option v-for="(cat, index) in bassPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="bass" 
-            :multiple="true" 
-            :options="basses"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="bass">
-            <option v-for="bass in basses" :key="bass">{{ bass }}</option>
-          </select>-->
         </div>
       </div>
       <div>
-        <div>Drummer<br>(select 1)
+        <div>Drummer
         <select v-model="drummer"> 
             <option v-for="(cat, index) in drummerPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="drummer" 
-            :multiple="true" 
-            :options="drummers"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="drummer">
-            <option v-for="drummer in drummers" :key="drummer">{{ drummer }}</option>
-          </select>-->
         </div>
       </div>
       <div>
-        <div>Guitar<br>(select 1)
+        <div>Guitar
           <select v-model="guitar"> 
             <option v-for="(cat, index) in guitarPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-         <!--<multiselect 
-            v-model="guitar" 
-            :multiple="true" 
-            :options="guitars"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="guitar">
-            <option v-for="guitar in guitars" :key="guitar">{{ guitar }}</option>
-          </select>-->
         </div>
       </div>
       <div>
-        <div>Vocalist<br>(select 1)
+        <div>Vocalist
           <select v-model="vocalist"> 
             <option v-for="(cat, index) in vocalistPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
           </select>
-          <!--<multiselect 
-            v-model="vocalist" 
-            :multiple="true" 
-            :options="vocalists"
-            :close-on-select="false"
-            max="1"
-            class="select"
-          />
-          <select v-model="vocalist">
-            <option v-for="vocalist in vocalists" :key="vocalist">{{ vocalist }}</option>
-          </select>-->
         </div>
       </div>
     </div>
-    <h2 class="maker">This date's current personnel are:</h2>
-    <div class="maker">
-      <div v-show="trumpet.nickName">On Trumpet {{ trumpet.nickName }} {{ trumpet.last }}</div>
-      <div v-show="alto.first">On Alto Sax {{ alto.nickName }} {{ alto.last }}</div>
-      <div v-show="tenor.first">On Tenor Sax {{ tenor.nickName }} {{ tenor.last }}</div>
-      <div v-show="bari.first">On Bari Sax {{ bari.nickName }} {{ bari.last }}</div>
-      <div v-show="bone.first">On Trombone {{ bone.nickName }} {{ bone.last }}</div>
-      <div v-show="piano.first">On Piano {{ piano.nickName }} {{ piano.last }}</div>
-      <div v-show="bass.first">On Bass {{ bass.nickName }} {{ bass.last }}</div>
-      <div v-show="drummer.first">On Drums {{ drummer.nickName }} {{ drummer.last }}</div>
-      <div v-show="guitar.first">On Guitar {{ guitar.nickName }} {{ guitar.last }}</div>
-      <div v-show="vocalist.first">On Vocals {{ vocalist.nickName }} {{ vocalist.last }}</div>
-      <button @click="addBand">Book the Band!</button>
-    </div>
-    <div v-if="gigsBooked.length > 0" class="gigsBooked">
-      <h2>Booking List</h2>
-      <div v-for="band in gigsBooked" :key="band.id">
-        {{ band.id }} - Tonight's Band Led by {{ band.trumpet.nickName }}
+    <div class="datecol">
+      <h2 class="maker">This date's current personnel are:</h2>
+      <div class="maker">
+        <div v-show="trumpet.nickName">On Trumpet {{ trumpet.nickName }} {{ trumpet.last }}</div>
+        <div v-show="alto.first">On Alto Sax {{ alto.nickName }} {{ alto.last }}</div>
+        <div v-show="tenor.first">On Tenor Sax {{ tenor.nickName }} {{ tenor.last }}</div>
+        <div v-show="bari.first">On Bari Sax {{ bari.nickName }} {{ bari.last }}</div>
+        <div v-show="bone.first">On Trombone {{ bone.nickName }} {{ bone.last }}</div>
+        <div v-show="piano.first">On Piano {{ piano.nickName }} {{ piano.last }}</div>
+        <div v-show="bass.first">On Bass {{ bass.nickName }} {{ bass.last }}</div>
+        <div v-show="drummer.first">On Drums {{ drummer.nickName }} {{ drummer.last }}</div>
+        <div v-show="guitar.first">On Guitar {{ guitar.nickName }} {{ guitar.last }}</div>
+        <div v-show="vocalist.first">On Vocals {{ vocalist.nickName }} {{ vocalist.last }}</div>
+        <button @click="addBand">Book the Band!</button>
       </div>
+      <div>  
+        <div v-if="gigsBooked.length > 0" class="gigsBooked">
+          <h2>Booking List</h2>
+          <div v-for="band in gigsBooked" :key="band.id">
+            {{ band.id }} - Tonight's Band Led by {{ band.trumpet.nickName }}
+          </div>
+        </div>
+      </div>  
     </div>
   </div>
 </template>
@@ -304,48 +254,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  .maker {
-    width: 250px;
-    background-color: grey;
-    opacity: .7;
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
- }
-  .musicians {
-    margin: 20px 0px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    /*padding: 20px;*/
-    background-color: grey;
-    opacity: .7;
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
- }
-
- .select {
-   width: 140px;
-   text-shadow: 0px 0px 0px #000000;
- }
-
-  /*.fajita {
-    margin: 50px;
-  }
-
-  .ingredients {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 50px;
-  }*/
-
-  button {
-    padding: 30px;
-    font-size: 20px;
-    margin: 20px;
-  }
+.bookpage {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+.maker {
+  width: 300px;
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.musicianscol {
+  margin: 20px 0px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: right;
+  /*padding: 20px;*/
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.select {
+  width: 140px;
+  text-shadow: 0px 0px 0px #000000;
+}
+button {
+  padding: 30px;
+  font-size: 20px;
+  margin: 20px;
+}
 </style>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

@@ -2,7 +2,7 @@
   <div class="maker">
     <h1>The Band: {{ id }}</h1>
     <div>Featuring -</div>
-    <div v-show="band.trumpet.nickName">Cat: {{ band.trumpet.nickName }}</div>
+    <div v-show="band.trumpet.nickName">Trumpet: {{ band.trumpet.nickName }}</div>
     <div v-show="band.alto.nickName">Alto: {{ band.alto.nickName }}</div>
     <div v-show="band.tenor.length > 0">Tenor: {{ band.tenor }}</div>
     <div v-show="band.bari.length > 0">Bari: {{ band.bari }}</div>
@@ -36,19 +36,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  .fajita {
-    margin: 50px;
-  }
-
-  .ingredients {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 50px;
-  }
-
   button {
     padding: 30px;
     font-size: 20px;

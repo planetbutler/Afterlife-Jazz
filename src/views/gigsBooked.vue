@@ -35,22 +35,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  .fajita {
-    margin: 50px;
-  }
-
-  .ingredients {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 50px;
-  }
-
-  button {
-    padding: 30px;
-    font-size: 20px;
-    margin: 20px;
-  }
+button {
+  padding: 30px;
+  font-size: 20px;
+  margin: 20px;
+}
 </style>
