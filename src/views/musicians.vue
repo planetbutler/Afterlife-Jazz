@@ -31,6 +31,9 @@
           <div class="bio">DOB
             <input type="date" v-model="cat.dob">
           </div>
+          <div>Still Living?
+            <input type="checkbox">
+          </div>  
           <div class="bio">DOD
             <input type="date" v-model="cat.dod">
           </div>
@@ -43,6 +46,9 @@
             {{ cat.nickName }} {{ cat.last }}
         </div>
       </div>
+      <div class="waiting">
+      <h2>Waiting List</h2>
+      </div>  
     </div>    
   </div>   
 </template>
@@ -84,33 +90,42 @@ export default {
   flex-flow: column;
   justify-content: space-evenly;
 }
-h3 {
-  padding: 10px, 10px;
-}
 .form {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
 }
 .info {
+  width: 300px;
   margin: 20px 20px;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
   align-items: right;
-  /*padding: 20px;*/
   background-color: grey;
   opacity: .7;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
 .roster {
+  width: 300px;
   margin: 20px 20px;
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: right;
-  /*padding: 20px;*/
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.waiting {
+  width: 300px;
+  margin: 20px 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: right;
   background-color: grey;
   opacity: .7;
   color: white;
@@ -126,7 +141,8 @@ h3 {
 .bio {
   display: flex;
   flex-flow: column;
-  width: 300px;
+  justify-content: center;
+  width: 200px;
   margin: 50px, 50px; 
   background-color: grey;
   opacity: .7;
