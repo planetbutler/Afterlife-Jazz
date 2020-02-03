@@ -41,4 +41,11 @@ export default {
     font-size: 20px;
     margin: 20px;
   }
+  .maker {
+    width: 400px;
+    background-color: grey;
+    opacity: .7;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+  }
 </style>

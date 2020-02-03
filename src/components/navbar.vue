@@ -1,7 +1,6 @@
 <template>
   <div class="navbar">
-    <span class="title">Afterlife Jazz</span>
-
+    <span class="title">Welcome to Afterlife Jazz</span>
     <router-link :to="{ name: 'musicians' }">Sign Up</router-link>
     <router-link :to="{ name: 'bookingTool' }">Book a Band</router-link>
     <router-link :to="{ name: 'gigsBooked' }">Gigs Booked</router-link>
@@ -36,14 +35,15 @@ export default {
   .title {
     font-size: 30px;
     font-weight: 600;
+    color: lightgreen;
   }
   a  {
     text-decoration: none;
-    color: lightgreen;
+    color: white;
   }
 
  .router-link-exact-active {
-   color:white;
+   color: lightgreen;
  }
 
 </style>

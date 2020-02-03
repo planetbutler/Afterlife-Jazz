@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <h1>Welcome to Afterlife Jazz</h1> 
     <div class="form">  
       <div class="info">
-        <h2>New Musician Sign Up</h2>
+        <div class="catcol">
+          <h2>New Musician Sign Up</h2>
           <div class="bio">First Name
             <input v-model="cat.first">
           </div>  
@@ -13,7 +13,7 @@
           <div class="bio">But the cats call me
             <input v-model="cat.nickName">
           </div>  
-          <div class="bio">Axe
+          <div class="bio">Axe            
             <select v-model="axe"> 
               <option v-for="(axe, index) in axes" :value="axe" :key="index">{{ axe }}</option>
             </select>
@@ -35,15 +35,16 @@
             <input type="date" v-model="cat.dod">
           </div>
           <button @click="addCat">Submit</button>
-      </div>
+        </div>
+      </div>   
       <div class="roster">  
-        <h2>Roster</h2>
+      <h2>Roster</h2>
         <div v-for="(cat, index) in musicians" :key="index">
             {{ cat.nickName }} {{ cat.last }}
         </div>
-      </div> 
-    </div>   
-  </div>
+      </div>
+    </div>    
+  </div>   
 </template>
 
 <script>
@@ -81,9 +82,7 @@ export default {
 .page {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  width: 100%;
-  padding: 50px, 50px, 50px, 50px;
+  justify-content: space-evenly;
 }
 h3 {
   padding: 10px, 10px;
@@ -92,15 +91,48 @@ h3 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  padding: 50px, 50px, 50px, 50px;
-  margin: 50px, 50px;
 }
 .info {
-  padding: 50px, 50px, 50px, 50px;
-  margin: 100px, 100px;
+  margin: 20px 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: right;
+  /*padding: 20px;*/
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.roster {
+  margin: 20px 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: right;
+  /*padding: 20px;*/
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+.catcol {
+  width: 300px;
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 .bio {
-  padding: 50px, 50px, 50px, 50px;
+  display: flex;
+  flex-flow: column;
+  width: 300px;
   margin: 50px, 50px; 
+  background-color: grey;
+  opacity: .7;
+  color: white;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px #000000;
 }
+
 </style>
