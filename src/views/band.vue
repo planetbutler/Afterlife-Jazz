@@ -17,7 +17,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: 'BookingTool',
+  name: 'Band',
   props: ['id'],
   computed: {
     ...mapState({
