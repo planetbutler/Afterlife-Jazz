@@ -216,16 +216,7 @@ export default {
     };
   },
   created() {
-  this.trumpetPlayers=this.musicians.filter(item => item.axe==='trumpet');
-  this.altoPlayers=this.musicians.filter(item => item.axe==='alto');
-  this.tenorPlayers=this.musicians.filter(item => item.axe==='tenor');
-  this.bariPlayers=this.musicians.filter(item => item.axe==='bari');
-  this.bonePlayers=this.musicians.filter(item => item.axe==='bone');
-  this.pianoPlayers=this.musicians.filter(item => item.axe==='piano');
-  this.bassPlayers=this.musicians.filter(item => item.axe==='bass');
-  this.drummerPlayers=this.musicians.filter(item => item.axe==='drummer');
-  this.guitarPlayers=this.musicians.filter(item => item.axe==='guitar');
-  this.vocalistPlayers=this.musicians.filter(item => item.axe==='vocalist');
+    this.filterMusicians();
   },
   mounted() {
   },
@@ -249,6 +240,18 @@ export default {
         vocalist: this.vocalist,
       };
       this.$store.dispatch('addBand', band);
+    },
+    filterMusicians() {
+      this.trumpetPlayers=this.musicians.filter(item => item.axe==='trumpet');
+      this.altoPlayers=this.musicians.filter(item => item.axe==='alto');
+      this.tenorPlayers=this.musicians.filter(item => item.axe==='tenor');
+      this.bariPlayers=this.musicians.filter(item => item.axe==='bari');
+      this.bonePlayers=this.musicians.filter(item => item.axe==='bone');
+      this.pianoPlayers=this.musicians.filter(item => item.axe==='piano');
+      this.bassPlayers=this.musicians.filter(item => item.axe==='bass');
+      this.drummerPlayers=this.musicians.filter(item => item.axe==='drummer');
+      this.guitarPlayers=this.musicians.filter(item => item.axe==='guitar');
+      this.vocalistPlayers=this.musicians.filter(item => item.axe==='vocalist');
     },
     limitTrumpetSelection(e) {
       console.log(e);
