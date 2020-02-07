@@ -67,14 +67,14 @@
         </div>
         <div>
           <div>Alto 1
-            <select v-model="alto"> 
+            <select v-model="alto1"> 
               <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
             </select>
           </div>
         </div> 
         <div>
           <div>Alto 2
-            <select v-model="alto"> 
+            <select v-model="alto2"> 
               <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
             </select>
           </div>
@@ -147,7 +147,8 @@
         <h2 class="maker">This date's current personnel are:</h2>
         <div class="maker">
           <div v-show="trumpet.nickName">On Trumpet {{ trumpet.nickName }} {{ trumpet.last }}</div>
-          <div v-show="alto.first">On Alto Sax {{ alto.nickName }} {{ alto.last }}</div>
+          <div v-show="alto1.first">On Alto Sax {{ alto1.nickName }} {{ alto1.last }}</div>
+          <div v-show="alto2.first">On Alto Sax {{ alto2.nickName }} {{ alto2.last }}</div>
           <div v-show="tenor.first">On Tenor Sax {{ tenor.nickName }} {{ tenor.last }}</div>
           <div v-show="bari.first">On Bari Sax {{ bari.nickName }} {{ bari.last }}</div>
           <div v-show="bone.first">On Trombone {{ bone.nickName }} {{ bone.last }}</div>
@@ -190,7 +191,8 @@ export default {
   data() {
     return {
       trumpet: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
-      alto: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      alto1: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
+      alto2: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
       tenor: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
       bari: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
       bone: {first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null},
