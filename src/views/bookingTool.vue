@@ -302,29 +302,34 @@ export default {
     filterMusicians() {
       this.trumpet1Players=this.musicians
         .filter(item => item.axe==='trumpet')
-        .filter(item => item.nickName !== this.trumpet2.nickName 
-        && this.trumpet3.nickName && this.trumpet4.nickName 
-        && this.trumpet5.nickName);
+        .filter(item => item.nickName !== this.trumpet2.nickName)
+        .filter(item => item.nickName !== this.trumpet3.nickName)
+        .filter(item => item.nickName !== this.trumpet4.nickName) 
+        .filter(item => item.nickName !== this.trumpet5.nickName);
       this.trumpet2Players=this.musicians
       .filter(item => item.axe==='trumpet')
-        .filter(item => item.nickName !== this.trumpet1.nickName 
-        && this.trumpet3.nickName && this.trumpet4.nickName 
-        && this.trumpet5.nickName);
+        .filter(item => item.nickName !== this.trumpet1.nickName)
+        .filter(item => item.nickName !== this.trumpet3.nickName)
+        .filter(item => item.nickName !== this.trumpet4.nickName) 
+        .filter(item => item.nickName !== this.trumpet5.nickName);
       this.trumpet3Players=this.musicians
       .filter(item => item.axe==='trumpet')
-        .filter(item => item.nickName !== this.trumpet1.nickName 
-        && this.trumpet2.nickName && this.trumpet4.nickName 
-        && this.trumpet5.nickName);
+        .filter(item => item.nickName !== this.trumpet1.nickName)
+        .filter(item => item.nickName !== this.trumpet2.nickName)
+        .filter(item => item.nickName !== this.trumpet4.nickName) 
+        .filter(item => item.nickName !== this.trumpet5.nickName);
       this.trumpet4Players=this.musicians
       .filter(item => item.axe==='trumpet')
-        .filter(item => item.nickName !== this.trumpet1.nickName 
-        && this.trumpet2.nickName && this.trumpet3.nickName 
-        && this.trumpet5.nickName);
+        .filter(item => item.nickName !== this.trumpet1.nickName)
+        .filter(item => item.nickName !== this.trumpet2.nickName)
+        .filter(item => item.nickName !== this.trumpet3.nickName) 
+        .filter(item => item.nickName !== this.trumpet5.nickName);
       this.trumpet5Players=this.musicians
       .filter(item => item.axe==='trumpet')
-        .filter(item => item.nickName !== this.trumpet1.nickName 
-        && this.trumpet2.nickName && this.trumpet3.nickName 
-        && this.trumpet4.nickName);
+        .filter(item => item.nickName !== this.trumpet1.nickName)
+        .filter(item => item.nickName !== this.trumpet2.nickName)
+        .filter(item => item.nickName !== this.trumpet3.nickName) 
+        .filter(item => item.nickName !== this.trumpet4.nickName);
       this.alto1Players = this.musicians
         .filter(item => item.axe==='alto')
         .filter(item => item.nickName !== this.alto2.nickName);
@@ -340,24 +345,34 @@ export default {
       this.bariPlayers=this.musicians.filter(item => item.axe==='bari');
       this.bone1Players=this.musicians.filter(item => item.axe==='bone')
         .filter(item => item.axe==='bone')
-        .filter(item => item.nickName !== this.bone2.nickName 
-        && this.bone3.nickName && this.bone4.nickName && this.bone5.nickName);
+        .filter(item => item.nickName !== this.bone2.nickName) 
+        .filter(item => item.nickName !== this.bone3.nickName) 
+        .filter(item => item.nickName !== this.bone4.nickName) 
+        .filter(item => item.nickName !== this.bone5.nickName);
       this.bone2Players=this.musicians.filter(item => item.axe==='bone')
         .filter(item => item.axe==='bone')
-        .filter(item => item.nickName !== this.bone1.nickName 
-        && this.bone3.nickName && this.bone4.nickName && this.bone5.nickName);
+        .filter(item => item.nickName !== this.bone1.nickName) 
+        .filter(item => item.nickName !== this.bone3.nickName) 
+        .filter(item => item.nickName !== this.bone4.nickName) 
+        .filter(item => item.nickName !== this.bone5.nickName);
       this.bone3Players=this.musicians.filter(item => item.axe==='bone')
         .filter(item => item.axe==='bone')
-        .filter(item => item.nickName !== this.bone1.nickName 
-        && this.bone2.nickName && this.bone4.nickName && this.bone5.nickName);
+        .filter(item => item.nickName !== this.bone1.nickName) 
+        .filter(item => item.nickName !== this.bone2.nickName) 
+        .filter(item => item.nickName !== this.bone4.nickName) 
+        .filter(item => item.nickName !== this.bone5.nickName);
       this.bone4Players=this.musicians.filter(item => item.axe==='bone')
         .filter(item => item.axe==='bone')
-        .filter(item => item.nickName !== this.bone1.nickName 
-        && this.bone2.nickName && this.bone3.nickName && this.bone5.nickName);
+        .filter(item => item.nickName !== this.bone1.nickName) 
+        .filter(item => item.nickName !== this.bone2.nickName) 
+        .filter(item => item.nickName !== this.bone3.nickName) 
+        .filter(item => item.nickName !== this.bone5.nickName);
       this.bone5Players=this.musicians.filter(item => item.axe==='bone')
         .filter(item => item.axe==='bone')
-        .filter(item => item.nickName !== this.bone1.nickName 
-        && this.bone2.nickName && this.bone3.nickName && this.bone4.nickName);
+        .filter(item => item.nickName !== this.bone1.nickName) 
+        .filter(item => item.nickName !== this.bone2.nickName) 
+        .filter(item => item.nickName !== this.bone3.nickName) 
+        .filter(item => item.nickName !== this.bone4.nickName);
       this.pianoPlayers=this.musicians.filter(item => item.axe==='piano');
       this.bassPlayers=this.musicians.filter(item => item.axe==='bass');
       this.drummerPlayers=this.musicians.filter(item => item.axe==='drummer');
