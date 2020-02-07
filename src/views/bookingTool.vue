@@ -67,15 +67,17 @@
         </div>
         <div>
           <div>Alto 1
-            <select v-model="alto1"> 
-              <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+            <select v-model="alto1" @change="filterMusicians">
+              <option :value="{first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null}" :key="0"></option>
+              <option v-for="(cat, index) in alto1Players" :value="cat" :key="index+1">{{ cat.nickName }} {{ cat.last }}</option>
             </select>
           </div>
         </div> 
         <div>
           <div>Alto 2
-            <select v-model="alto2"> 
-              <option v-for="(cat, index) in altoPlayers" :value="cat" :key="index">{{ cat.nickName }} {{ cat.last }}</option>
+            <select v-model="alto2" @change="filterMusicians">
+              <option :value="{first:null, last:null, nickName:null, axe:null, style:null, format:null, dob:null, dod:null}" :key="0"></option>
+              <option v-for="(cat, index) in alto2Players" :value="cat" :key="index+1">{{ cat.nickName }} {{ cat.last }}</option>
             </select>
           </div>
         </div>    
@@ -204,7 +206,8 @@ export default {
       style: '',
       format: '',
       trumpetPlayers:[],
-      altoPlayers:[],
+      alto1Players:[],
+      alto2Players:[],
       tenorPlayers:[],
       bariPlayers:[],
       bonePlayers:[],
@@ -243,7 +246,12 @@ export default {
     },
     filterMusicians() {
       this.trumpetPlayers=this.musicians.filter(item => item.axe==='trumpet');
-      this.altoPlayers=this.musicians.filter(item => item.axe==='alto');
+      this.alto1Players = this.musicians
+        .filter(item => item.axe==='alto')
+        .filter(item => item.nickName !== this.alto2.nickName);
+      this.alto2Players = this.musicians
+        .filter(item => item.axe==='alto')
+        .filter(item => item.nickName !== this.alto1.nickName);
       this.tenorPlayers=this.musicians.filter(item => item.axe==='tenor');
       this.bariPlayers=this.musicians.filter(item => item.axe==='bari');
       this.bonePlayers=this.musicians.filter(item => item.axe==='bone');
