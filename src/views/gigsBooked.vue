@@ -3,7 +3,7 @@
     <h1>List of Booked Gigs</h1>
     <div v-for="band in gigsBooked" :key="band.id" class="band">
       <router-link :to="{ name: 'band', params: { id: band.id }}">
-        <div class="band">Gig ID: {{ band.id }} - {{ band.trumpet.nickName }} {{ band.trumpet.last }}</div>
+        <div class="band">Gig ID: {{ band.id }} - {{ band.trumpet1.nickName }} {{ band.trumpet1.last }}</div>
       </router-link>
     </div>
   </div>

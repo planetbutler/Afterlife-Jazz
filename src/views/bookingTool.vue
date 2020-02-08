@@ -202,7 +202,7 @@
           <div v-if="gigsBooked.length > 0" class="gigsBooked">
             <h2>Booking List</h2>
             <div v-for="band in gigsBooked" :key="band.id">
-              {{ band.id }} - Tonight's Band Led by {{ band.trumpet.nickName }}
+              {{ band.id }} - Tonight's Band Led by {{ band.trumpet1.nickName }}
             </div>
           </div>
         </div>  
@@ -286,11 +286,21 @@ export default {
     addBand() {
       const band = {
         id: 1 + this.gigsBooked.length,
-        trumpet: this.trumpet,
-        alto: this.alto,
-        tenor: this.tenor,
+        trumpet1: this.trumpet1,
+        trumpet2: this.trumpet2,
+        trumpet3: this.trumpet3,
+        trumpet4: this.trumpet4,
+        trumpet5: this.trumpet6,
+        alto1: this.alto1,
+        alto2: this.alto2,
+        tenor1: this.tenor1,
+        tenor2: this.tenor2,
         bari: this.bari,
-        bone: this.bone,
+        bone1: this.bone1,
+        bone2: this.bone2,
+        bone3: this.bone3,
+        bone4: this.bone4,
+        bone5: this.bone5,
         piano: this.piano,
         bass: this.bass,
         drummer: this.drummer,
