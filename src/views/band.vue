@@ -37,13 +37,10 @@ export default {
   },
   created() {
     this.band = this.gigsBooked.find(band => this.id === band.id);
-    console.log(this.band);
   },
   data() {
     return {
-      band: {
-        trumpet1: {nickname: ''}
-      },
+      band: {},
     };
   },
 };

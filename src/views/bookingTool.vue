@@ -290,7 +290,7 @@ export default {
         trumpet2: this.trumpet2,
         trumpet3: this.trumpet3,
         trumpet4: this.trumpet4,
-        trumpet5: this.trumpet6,
+        trumpet5: this.trumpet5,
         alto1: this.alto1,
         alto2: this.alto2,
         tenor1: this.tenor1,
